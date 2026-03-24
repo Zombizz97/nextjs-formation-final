@@ -85,6 +85,21 @@ export interface JobOfferDocumentDataTechnologiesItem {
 }
 
 /**
+ * Item in *Job Offer → Recipients*
+ */
+export interface JobOfferDocumentDataRecipientsItem {
+  /**
+   * email field in *Job Offer → Recipients*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Email des destinataires
+   * - **API ID Path**: job_offer.recipients[].email
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email: prismic.KeyTextField;
+}
+
+/**
  * Content for Job Offer documents
  */
 interface JobOfferDocumentData {
@@ -133,6 +148,17 @@ interface JobOfferDocumentData {
   technologies: prismic.GroupField<
     Simplify<JobOfferDocumentDataTechnologiesItem>
   >;
+
+  /**
+   * Recipients field in *Job Offer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_offer.recipients[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  recipients: prismic.GroupField<Simplify<JobOfferDocumentDataRecipientsItem>>;
 }
 
 /**
@@ -177,6 +203,7 @@ declare module "@prismicio/client" {
       JobOfferDocument,
       JobOfferDocumentData,
       JobOfferDocumentDataTechnologiesItem,
+      JobOfferDocumentDataRecipientsItem,
       AllDocumentTypes,
     };
   }

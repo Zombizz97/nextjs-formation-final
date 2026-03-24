@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { asDate } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "@/prismicio";
+import ApplicationForm from "@/components/ApplicationForm";
 
 export const revalidate = 60;
 
@@ -36,6 +37,11 @@ export default async function JobDetailPage({ params }: PageProps) {
     const date = job.data.date ? asDate(job.data.date) : null;
     const technologies = job.data.technologies ?? [];
 
+    const recipients = (job.data.recipients ?? [])
+        .map((r: { email: string | null }) => r.email?.trim())
+        .filter(Boolean)
+        .join(",");
+
     const formattedDate = date
         ? date.toLocaleDateString("fr-FR", {
             day: "2-digit",
@@ -68,8 +74,8 @@ export default async function JobDetailPage({ params }: PageProps) {
             {technologies.length > 0 && (
                 <div className="detail-tags">
                     {technologies
-                        .filter((t) => t.technology)
-                        .map((t, i) => (
+                        .filter((t: { technology: string | null }) => t.technology)
+                        .map((t: { technology: string | null }, i: number) => (
                             <span key={i} className="detail-tag">
                                 {t.technology}
                             </span>
@@ -80,6 +86,12 @@ export default async function JobDetailPage({ params }: PageProps) {
             <div className="detail-description">
                 <PrismicRichText field={job.data.description} />
             </div>
+
+            <ApplicationForm
+                jobTitle={title}
+                jobUid={job.uid}
+                recipients={recipients}
+            />
         </div>
     );
 }

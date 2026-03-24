@@ -50,6 +50,22 @@
             }
           }
         }
+      },
+      "recipients": {
+        "type": "Group",
+        "config": {
+          "label": "Recipients",
+          "repeat": true,
+          "fields": {
+            "email": {
+              "type": "Text",
+              "config": {
+                "label": "email",
+                "placeholder": "Email des destinataires"
+              }
+            }
+          }
+        }
       }
     }
   }
