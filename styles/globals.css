@@ -356,3 +356,59 @@ button {
 .btn-send:hover {
     background: #1648c4;
 }
+
+/* Tag cloud */
+.tag-cloud {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-cloud__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.tag-cloud__item:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-light);
+}
+
+.tag-cloud__item--active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+}
+
+.tag-cloud__item--active:hover {
+    background: #1648c4;
+    border-color: #1648c4;
+    color: var(--white);
+}
+
+.tag-cloud__count {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    padding: 1px 7px;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.tag-cloud__item:not(.tag-cloud__item--active) .tag-cloud__count {
+    background: var(--bg);
+    color: var(--text-muted);
+}

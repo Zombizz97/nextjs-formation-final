@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/prismicio";
-import JobCard from "@/components/JobCard";
 import Image from 'next/image'
+import JobBoard from "@/components/JobBoard";
 
 export const revalidate = 60;
 
@@ -10,7 +10,6 @@ export default async function HomePage() {
 
     const jobs = await client.getAllByType("job_offer", {
         orderings: [{ field: "my.job_offer.date", direction: "desc" }],
-        limit: 6,
     });
 
     return (
@@ -27,17 +26,7 @@ export default async function HomePage() {
                 <h2>Nos dernières opportunités</h2>
             </div>
 
-            {jobs.length > 0 ? (
-                <div className="job-grid">
-                    {jobs.map((job) => (
-                        <JobCard key={job.id} job={job} />
-                    ))}
-                </div>
-            ) : (
-                <div className="empty-state">
-                    <p>Aucune offre disponible pour le moment. Revenez bientôt !</p>
-                </div>
-            )}
+            <JobBoard jobs={jobs} />
 
             <div className="cta-wrap">
                 <Link href="/offers" className="btn-primary">
