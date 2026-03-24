@@ -10,6 +10,7 @@ export default async function HomePage() {
 
     const jobs = await client.getAllByType("job_offer", {
         orderings: [{ field: "my.job_offer.date", direction: "desc" }],
+        limit: 6,
     });
 
     return (

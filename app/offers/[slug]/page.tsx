@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps) {
     }
 }
 
-export default async function JobDetailPage({ params }: PageProps) {
+export default async function JobDetail({ params }: PageProps) {
     const { slug } = await params;
     const client = createClient();
 
@@ -85,8 +85,7 @@ export default async function JobDetailPage({ params }: PageProps) {
             </div>
 
             <ApplicationForm
-                jobTitle={title}
-                jobUid={job.uid}
+                job={job}
                 recipients={recipients}
             />
         </div>

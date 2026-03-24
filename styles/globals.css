@@ -517,3 +517,61 @@ button {
     line-height: 1.6;
     margin-top: 4px;
 }
+/* ─── Pagination ──────────────────────────────────────────────────── */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 40px 0 0;
+    padding: 0 24px;
+}
+
+.pagination__btn,
+.pagination__page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+
+.pagination__btn:hover,
+.pagination__page:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-light);
+}
+
+.pagination__page--active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+    pointer-events: none;
+}
+
+.pagination__btn--disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+}
+
+.pagination__ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    user-select: none;
+}

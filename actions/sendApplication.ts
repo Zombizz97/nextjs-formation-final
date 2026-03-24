@@ -55,7 +55,5 @@ export async function sendApplication(formData: FormData) {
         message,
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
     redirect("/thankyou");
 }
