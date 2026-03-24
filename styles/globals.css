@@ -433,3 +433,87 @@ button {
 .application-form__input::placeholder {
     color: var(--text-muted);
 }
+/* ─── Profil page ─────────────────────────────────────────────────── */
+.profil-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+}
+
+.profil-header {
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--blue);
+    margin-bottom: 40px;
+}
+
+.profil-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.profil-section {
+    margin-bottom: 56px;
+}
+
+.profil-section__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 24px;
+}
+
+.profil-empty {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding: 20px 0;
+}
+
+/* ─── Application history ─────────────────────────────────────────── */
+.application-history {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+}
+
+.application-history__item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.application-history__meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--blue);
+}
+
+.application-history__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: color 0.15s;
+}
+
+.application-history__title:hover {
+    color: var(--blue);
+}
+
+.application-history__techs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.application-history__message {
+    font-size: 0.82rem;
+    color: var(--blue);
+    line-height: 1.6;
+    margin-top: 4px;
+}
